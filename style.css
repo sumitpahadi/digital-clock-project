@@ -6,7 +6,7 @@
 .main-container {
   background-color: #3d087b;
   width: 100%;
-  height: 100%;
+  height: 900px;
   display: flex;
   justify-content: center;
 }
