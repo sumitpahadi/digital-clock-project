@@ -378,27 +378,28 @@ h3 {
 .h2 {
   position: relative;
     left: 815px;
-    top: 310px;
+    top: 314px;
     width: 580px;
+    height: 54px;
 }
 h3 {
   position: relative;
   left: 814px;
-  top: 686px;
+  top: 727px;
   width: 274px;
 }
 
 .p {
   position: relative;
   left: 840px;
-  top: 685px;
+  top: 723px;
   width: 269px;
 }
 .pic {
   position: relative;
-  left: -331px;
-  width: 581px;
-  top: 299px;
+    left: -331px;
+    width: 581px;
+    top: 367px;
 }
 
 
