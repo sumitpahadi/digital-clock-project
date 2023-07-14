@@ -209,8 +209,19 @@ h3 {
 /* ----------------------------------media query for tablet ------------------------------ */
 
 @media (max-width: 1024px) and (min-width: 600px) {
+   body {
+    height: 100%;
+    width: 100%; /* Updated value */
+  }
+  .first-container{
+    margin-top: -32px;
+  }
+  .second-container{
+    margin-top: -20px;
+  }
   .clock
    {
+    
     display: inline-block;
 
     padding-left: 40px;
@@ -326,8 +337,8 @@ h3 {
 /* --------------------------------------media query for mobile--------------------- */
 @media (max-width: 600px)  {
     body{
-      width: 100%;
-      height: 100%;
+      width: 100vh;
+      height: 100vh;
         background-color: #3d087b;
     }
   .clock

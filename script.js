@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var min = time.getMinutes();
     var sec = time.getSeconds();
 
-    display[0].innerHTML = `${hrs} HR`;
+    display[0].innerHTML = `${hrs}HR`;
     display1[0].innerHTML = `${min} MIN`;
     display2[0].innerHTML = `${sec} SEC`;
     if (hrs > 12) {
