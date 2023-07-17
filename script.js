@@ -30,7 +30,7 @@ function time() {
   
   // Check if it's AM or PM
   if (hrs > 12) {
-    hourEl.innerHTML = `${hrs % 12} HR`;
+    hourEl.innerHTML = `${hrs % 12} `;
   }
   
   // Determine the appropriate message based on the hour

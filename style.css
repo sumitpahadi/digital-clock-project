@@ -383,4 +383,19 @@ body {
     top: 1400px;
     width: 100%;
   }
+  .timerBox1 .span1 {
+   
+   
+    width: 64px;
+    height: 90px;
+    font-size: 36px;
+  
+  }
+ .timerBox1  .span2{
+    width: 78px;
+    max-width: 65px;
+    height: 90px;
+   
+    
+  }
 }
