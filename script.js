@@ -1,78 +1,110 @@
-var display = document.querySelectorAll(".box1");
 
-var display1 = document.querySelectorAll(".box2");
 
-var display2 = document.querySelectorAll(".box3");
 
-var display3 = document.querySelectorAll(".box4");
+let hourEl = document.getElementById("hours");
+let minuteEl = document.getElementById("minutes");
+let secondEl = document.getElementById("seconds");
 
-var display4 = document.querySelectorAll(".breakfast");
-document.addEventListener("DOMContentLoaded", function () {
-  function startClock() {
-    var time = new Date();
-    var hrs = time.getHours();
-    var min = time.getMinutes();
-    var sec = time.getSeconds();
 
-    display[0].innerHTML = `${hrs}HR`;
-    display1[0].innerHTML = `${min} MIN`;
-    display2[0].innerHTML = `${sec} SEC`;
-    if (hrs > 12) {
-      display3[0].innerHTML = "PM";
-    } else {
-      display3[0].innerHTML = "PM";
-    }
-    if (hrs > 12) {
-      display[0].innerHTML = `${hrs % 12} HR`;
-    }
-    if (hrs < 12) {
-      display4[0].innerHTML = "GRAB SOME HEALTHY BREAKFAST!!!";
-    } else if (hrs > 12 && hrs < 16) {
-      display4[0].innerHTML = "LET'S HAVE SOME LUNCH !!";
-    } else if (hrs > 16 && hrs < 20) {
-      display4[0].innerHTML = "STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!";
-    } else if (hrs > 20 && hrs < 24) {
-      display4[0].innerHTML = "CLOSE YOUR EYES AND GO TO SLEEP";
-    }
+
+let ampnEl = document.getElementById("ampm");
+let messageEl = document.getElementById("message");
+let selects = document.getElementsByClassName("option");
+let img = document.getElementById("uiImages");
+let greating = document.getElementById("greating");
+let scheduleTime = document.getElementsByClassName("scheduleTime");
+
+function time() {
+  let hourEl = document.getElementById("hours");
+  let minuteEl = document.getElementById("minutes");
+  let secondEl = document.getElementById("seconds");
+  var time = new Date();
+  var hrs = time.getHours();
+  var min = time.getMinutes();
+  var sec = time.getSeconds();
+  
+  // Update the hour, minute, and second elements
+  hourEl.innerHTML = `${hrs} `;
+  minuteEl.innerHTML = `${min} `;
+  secondEl.innerHTML = `${sec}`;
+  
+  // Check if it's AM or PM
+  if (hrs > 12) {
+    hourEl.innerHTML = `${hrs % 12} HR`;
   }
+  
+  // Determine the appropriate message based on the hour
+  if (hrs < 12) {
+    messageEl.innerHTML = "GRAB SOME HEALTHY BREAKFAST!!!";
+  } else if (hrs >= 12 && hrs < 16) {
+    messageEl.innerHTML = "LET'S HAVE SOME LUNCH !!";
+  } else if (hrs >= 16 && hrs < 20) {
+    messageEl.innerHTML = "STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!";
+  } else {
+    messageEl.innerHTML = "CLOSE YOUR EYES AND GO TO SLEEP";
+  }
+  
+}
+setInterval(() => time(), 1000);
 
-  setInterval(() => {
-    startClock();
-  }, 1000);
-});
 
-var selects = document.getElementsByClassName("option");
+function message(time) {
+  if (time > 20 || time <= 5) {
+    messageEl.innerHTML = "CLOSE YOUR EYES AND GO TO SLEEP";
+  } else if (time > 5 && time <= 11) {
+    messageEl.innerHTML = "GRAB SOME HEALTHY BREAKFAST!!!";
+  } else if (time > 11 && time <= 16) {
+    messageEl.innerHTML = "LET'S HAVE SOME LUNCH !!";
+  } else {
+    messageEl.innerHTML = "STOP YAWNING, GET SOME TEA.. ITS JUST EVENING!";
+  }
+}
 
-var scheduleTime = document.getElementsByClassName("scheduleTime");
-var img = document.getElementById("uiImages");
-var greating = document.getElementById("greating");
 
-let flag = false;
+// hover even on set alarm
+function partyTime(x){
+  console.log("partyTime function call")
+ x.innerHTML="Party time!";
+
+}
+function normal(x){
+  console.log("normal function call")
+  x.innerHTML="set alarm";
+ 
+
+}
+
+
+let flag=false;
 function Alarm() {
   console.log("Alarm call");
   let time = new Date();
   let hour = time.getHours();
   if (hour === parseInt(selects[0].value)) {
-    img.src = "./image/Component 30 – 1.png";
-    greating.innerHTML="GOOD MORNING!! WAKE UP !!";
-    console.log("morring call");
-    flag = !flag;
+    img.src = "./images/Component 30 – 1.svg";
+    greating.innerHTML = "GOOD MORNING!! WAKE UP !!";
+  console.log("morring call");
+  flag=!flag;
+
   } else if (hour === parseInt(selects[1].value)) {
-    img.src = "./image/Component 31 – 1.svg";
-    greating.innerHTML="GOOD AFTERNOON !! TAKE SOME SLEEP";
-    console.log("AFTERNOON call");
-    console.log(greating);
-    flag = !flag;
+    img.src = "./images/Group.svg";
+    greating.innerHTML = "GOOD AFTERNOON !! TAKE SOME SLEEP";
+  console.log("AFTERNOON call");
+  console.log(greating);
+  flag=!flag;
+
   } else if (hour === parseInt(selects[2].value)) {
-    img.src = "./image/lunch_image.png";
-    greating.innerHTML="GOOD EVENING !!";
-    console.log("EVENING call");
-    flag = !flag;
+    img.src = "./images/cup afternoon.png";
+    greating.innerHTML = "GOOD EVENING !!";
+  console.log("EVENING call");
+  flag=!flag;
+
   } else if (hour === parseInt(selects[3].value)) {
-    img.src = "./image/Component 32 – 1.png";git 
-    greating.innerHTML="GOOD NIGHT !!";
-    console.log("NIGHT call");
-    flag = !flag;
+    img.src = "./images/gn.svg";
+    greating.innerHTML = "GOOD NIGHT !!";
+  console.log("NIGHT call");
+  flag=!flag;
+
   }
 }
 
@@ -87,9 +119,10 @@ function setAlarm() {
   var y4 = selects[3].options;
   const alm = setInterval(() => {
     Alarm();
-    if (flag) {
+    if(flag){
       clearInterval(alm);
-      flag = !flag;
+     flag=!flag;
+
     }
   }, 1000);
   scheduleTime[0].innerHTML = "Wake Up Time :" + y1[x1].text; //temp
