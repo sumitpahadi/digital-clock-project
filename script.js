@@ -29,7 +29,17 @@ function time() {
   minuteEl.innerHTML = `${min} `;
   secondEl.innerHTML = `${sec}`;
   
+  
+
+
+  if(hrs>12)
+  {
+    hourEl.innerHTML=`${hrs%12}`
+
+  }
+
   // Check if it's AM or PM
+
   if (hrs > 12) {
     chnageap[0].innerHTML = "PM";
   }
@@ -78,6 +88,9 @@ function normal(x){
  
 
 }
+
+
+
 
 
 let flag=false;
