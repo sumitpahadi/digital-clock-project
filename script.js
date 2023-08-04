@@ -18,6 +18,7 @@ function time() {
   let hourEl = document.getElementById("hours");
   let minuteEl = document.getElementById("minutes");
   let secondEl = document.getElementById("seconds");
+  let chnageap=document.getElementsByClassName('span2')
   var time = new Date();
   var hrs = time.getHours();
   var min = time.getMinutes();
@@ -30,7 +31,11 @@ function time() {
   
   // Check if it's AM or PM
   if (hrs > 12) {
-    hourEl.innerHTML = `${hrs % 12} `;
+    chnageap[0].innerHTML = "PM";
+  }
+  else{
+    chnageap[0].innerHTML = "AM";
+
   }
   
   // Determine the appropriate message based on the hour
